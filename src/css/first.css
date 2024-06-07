@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bonheur+Royale&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Style+Script&display=swap');
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+
+}
+
+.week1-container {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+   
+}
+
+/* the blue color to use 2B5972
+background of cards F6F8F9
+ */
+ 
+ .W-ExpandableBox{
+  width:100%;
+  
+ }
+
+
+.FirstInputs {
+    display: flex;
+    padding-top:2%;
+    gap:6%;
+    font-size:16px;
+    font-weight:400;
+}
+
+#date,
+.form-select
+{
+  font-size: 13px;
+  padding:10px;
+  width:90%;
+  border-radius: 4px;
+border: 1px solid #DEE2E6;
+cursor:pointer;
+outline:none;
+}
+
+/* .expandable-input {
+    position: relative;
+    width: 200px;
+} */
+/* 
+#inputField {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+} */
+
+.Shift,
+.Department,
+.Section,
+.Date{
+  width:25%;
+    display:flex;
+    flex-direction: column;
+}
+
+.W-Mid-1,
+.W-Mid-2,
+.W-Mid-3{
+    padding-top:2%;
+    margin-left:5%;
+    color:#2B5972;
+    font-size:20px;
+    font-weight:600;
+    display:flex;
+}
+
+.W-Top,
+.W-Second,
+.W-Third,
+.W-Last{
+    margin-top:1%;
+    margin-left:5%;
+    width:90%;
+    padding-bottom:2%;
+    padding-left:1%;
+    padding-right:1%;
+    background-color:#F6F8F9;
+    border:1px solid #DADDE1;
+    border-radius:4px;
+}
+
+/* .Fourth{
+    height:450px;
+} */
+
+/* #editor-container,
+#editor-container-2 {
+height:300px;
+} */
+
+.W-Subtitle-1,
+.W-Subtitle-2,
+.W-Subtitle-3{
+    padding-top:2%;
+    padding-bottom:1%;
+}
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
