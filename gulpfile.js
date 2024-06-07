@@ -1,26 +1,36 @@
-const { src, dest, watch, series } = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
+const { src, dest, watch, series, parallel } = require('gulp');
 const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
+const browserSync = require('browser-sync').create();
 
-// Task to compile SCSS to CSS
-function compileSass() {
-  return src('src/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(dest('dist/css'));
+// Task to concatenate and minify CSS files
+function styles() {
+  return src('src/css/**/*.css')
+    .pipe(concat('styles.min.css'))
+    .pipe(cleanCSS())
+    .pipe(dest('dist/css'))
+    .pipe(browserSync.stream());
 }
 
-// Task to concatenate JS files
+// Task to concatenate and minify JS files
 function scripts() {
   return src('src/js/**/*.js')
     .pipe(concat('main.js'))
-    .pipe(dest('dist/js'));
+    .pipe(dest('dist/js'))
+    .pipe(browserSync.stream());
 }
 
-// Task to watch for changes in SCSS and JS files
+// Task to watch for changes in CSS and JS files
 function watchFiles() {
-  watch('src/scss/**/*.scss', compileSass);
+  browserSync.init({
+    server: {
+      baseDir: './'
+    }
+  });
+  watch('src/css/**/*.css', styles);
   watch('src/js/**/*.js', scripts);
+  watch('*.html').on('change', browserSync.reload);
 }
 
 // Default task
-exports.default = series(compileSass, scripts, watchFiles);
+exports.default = series(styles, scripts, watchFiles);
